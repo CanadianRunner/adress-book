@@ -87,15 +87,18 @@ $(document).ready(function() {
     const inputtedLastName = $("input#new-last-name").val();
     const inputtedPhoneNumber = $("input#new-phone-number").val();
     const inputtedEmailAddress = $("input#new-email-address").val();
-    const inputtedPhysicalAddress = $("input#new-physical-address").val();
-
+    const inputtedWorkAddress = $("input#new-work-address").val("");
+    const inputtedHomeAddress = $("input#new-physical-address").val("");
+  }
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
     $("input#new-phone-number").val("");
     $("input#new-email-address").val("");
     $("input#new-physical-address").val("");
+    $("input#new-work-address").val("");
 
-    let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedEmailAddress, inputtedPhysicalAddress);
+    let multiAddresses = new Addresses(inputtedWorkAddress, inputtedHomeAddress); 
+    let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber, inputtedEmailAddress, multiAddresses);
     addressBook.addContact(newContact);
     displayContactDetails(addressBook);
   });
