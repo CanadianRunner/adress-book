@@ -54,7 +54,11 @@ function displayContactDetails(addressBookToDisplay) {
 }
 
 $(document).ready(function() {
-  attachContactListeners();
+  function attachContactListeners() {
+    $("ul#contacts").on("click", "li", function() {
+      showContact(this.id);  
+    });
+  }
   $("form#new-contact").submit(function(event) {
     event.preventDefault();
     const inputtedFirstName = $("input#new-first-name").val();
